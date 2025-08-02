@@ -1,62 +1,45 @@
 import { Canvas } from '@react-three/fiber';
-import { StatsGl, useTexture } from '@react-three/drei';
+import { StatsGl } from '@react-three/drei';
 import { Suspense } from 'react';
 import { useGameStore } from '../../state/useGameStore';
 
-// Simple floor/wall materials from AmbientCG (CC0) via direct URLs
-// Using 2K textures to balance quality/perf; can be tuned later.
-undefined
-undefined
-undefined
-undefined
 
-undefined
-undefined
-undefined
-undefined
+/* Using solid color materials for MVP to avoid external texture loading */
 
 function Room() {
-  const [fd, fn, fr, fao] = useTexture([FLOOR_DIFF, FLOOR_NORM, FLOOR_ROUGH, FLOOR_AO]);
-  const [wd, wn, wr, wao] = useTexture([WALL_DIFF, WALL_NORM, WALL_ROUGH, WALL_AO]);
   const size = 10; // 10x10m room box
 
   return (
     <group>
-      {/* Floor */}
+      {/* Floor - plain color */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[size, size, 1, 1]} />
-        <meshStandardMaterial
-          map={fd}
-          normalMap={fn}
-          roughnessMap={fr}
-          aoMap={fao}
-          roughness={1}
-        />
+        <meshStandardMaterial color="#2e7d32" roughness={1} metalness={0} />
       </mesh>
 
-      {/* Ceiling */}
+      {/* Ceiling - plain color */}
       <mesh position={[0, 3, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[size, size, 1, 1]} />
         <meshStandardMaterial color="#333" roughness={1} metalness={0} />
       </mesh>
 
-      {/* Walls (4 sides) */}
+      {/* Walls (4 sides) - plain color */}
       <group>
         <mesh position={[0, 1.5, -size / 2]} receiveShadow castShadow>
           <planeGeometry args={[size, 3]} />
-          <meshStandardMaterial map={wd} normalMap={wn} roughnessMap={wr} aoMap={wao} roughness={1} />
+          <meshStandardMaterial color="#455a64" roughness={1} metalness={0} />
         </mesh>
         <mesh position={[0, 1.5, size / 2]} rotation={[0, Math.PI, 0]} receiveShadow castShadow>
           <planeGeometry args={[size, 3]} />
-          <meshStandardMaterial map={wd} normalMap={wn} roughnessMap={wr} aoMap={wao} roughness={1} />
+          <meshStandardMaterial color="#455a64" roughness={1} metalness={0} />
         </mesh>
         <mesh position={[-size / 2, 1.5, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow castShadow>
           <planeGeometry args={[size, 3]} />
-          <meshStandardMaterial map={wd} normalMap={wn} roughnessMap={wr} aoMap={wao} roughness={1} />
+          <meshStandardMaterial color="#455a64" roughness={1} metalness={0} />
         </mesh>
         <mesh position={[size / 2, 1.5, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow castShadow>
           <planeGeometry args={[size, 3]} />
-          <meshStandardMaterial map={wd} normalMap={wn} roughnessMap={wr} aoMap={wao} roughness={1} />
+          <meshStandardMaterial color="#455a64" roughness={1} metalness={0} />
         </mesh>
       </group>
 
