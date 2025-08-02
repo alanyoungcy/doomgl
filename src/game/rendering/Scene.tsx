@@ -5,15 +5,15 @@ import { useGameStore } from '../../state/useGameStore';
 
 // Simple floor/wall materials from AmbientCG (CC0) via direct URLs
 // Using 2K textures to balance quality/perf; can be tuned later.
-const FLOOR_DIFF = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
-const FLOOR_NORM = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
-const FLOOR_ROUGH = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
-const FLOOR_AO = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+undefined
+undefined
+undefined
+undefined
 
-const WALL_DIFF = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
-const WALL_NORM = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
-const WALL_ROUGH = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
-const WALL_AO = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+undefined
+undefined
+undefined
+undefined
 
 function Room() {
   const [fd, fn, fr, fao] = useTexture([FLOOR_DIFF, FLOOR_NORM, FLOOR_ROUGH, FLOOR_AO]);
