@@ -32,5 +32,7 @@ export const useGameStore = create<GameState>()((set) => ({
   resume: () => set(() => ({ phase: 'playing' })),
   damage: (amount: number) => set((s: GameState) => ({ health: Math.max(0, s.health - amount) })),
   addAmmo: (amount: number) => set((s: GameState) => ({ ammo: s.ammo + amount })),
+  // expose a typed setter for ammo to avoid StoreApi typing friction at call sites
+  setAmmo: (ammo: number) => set(() => ({ ammo })),
   addScore: (amount: number) => set((s: GameState) => ({ score: s.score + amount })),
 }));
