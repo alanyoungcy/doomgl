@@ -5,15 +5,15 @@ import { useGameStore } from '../../state/useGameStore';
 
 // Simple floor/wall materials from AmbientCG (CC0) via direct URLs
 // Using 2K textures to balance quality/perf; can be tuned later.
-const FLOOR_DIFF = 'https://cdn.polyhaven.com/asset_img/primary/ground_gravel_01.png?height=1024';
-const FLOOR_NORM = 'https://cdn.polyhaven.com/asset_img/normal/ground_gravel_01.png?height=1024';
-const FLOOR_ROUGH = 'https://cdn.polyhaven.com/asset_img/rough/ground_gravel_01.png?height=1024';
-const FLOOR_AO = 'https://cdn.polyhaven.com/asset_img/ao/ground_gravel_01.png?height=1024';
+const FLOOR_DIFF = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const FLOOR_NORM = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const FLOOR_ROUGH = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const FLOOR_AO = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
 
-const WALL_DIFF = 'https://cdn.polyhaven.com/asset_img/primary/concrete_wall_001.png?height=1024';
-const WALL_NORM = 'https://cdn.polyhaven.com/asset_img/normal/concrete_wall_001.png?height=1024';
-const WALL_ROUGH = 'https://cdn.polyhaven.com/asset_img/rough/concrete_wall_001.png?height=1024';
-const WALL_AO = 'https://cdn.polyhaven.com/asset_img/ao/concrete_wall_001.png?height=1024';
+const WALL_DIFF = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const WALL_NORM = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const WALL_ROUGH = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const WALL_AO = 'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
 
 function Room() {
   const [fd, fn, fr, fao] = useTexture([FLOOR_DIFF, FLOOR_NORM, FLOOR_ROUGH, FLOOR_AO]);
