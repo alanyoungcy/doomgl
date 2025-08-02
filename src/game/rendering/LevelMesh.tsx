@@ -4,11 +4,9 @@ import { generateLevel } from '../level/Generator';
 import { useGameStore } from '../../state/useGameStore';
 
 const FLOOR_DIFF =
-  'https://ambientcg.com/get?file=FloorTileBare001_2K-JPG/FloorTileBare001_2K_Color.jpg';
-const FLOOR_NORM =
-  'https://ambientcg.com/get?file=FloorTileBare001_2K-JPG/FloorTileBare001_2K_NormalGL.jpg';
-const FLOOR_ROUGH =
-  'https://ambientcg.com/get?file=FloorTileBare001_2K-JPG/FloorTileBare001_2K_Roughness.jpg';
+  'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const undefined  'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
+const undefined  'https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Environments@master/textures/papermill_1k/papermill_1k_diffuse.png';
 
 export function LevelMesh() {
   const seed = useGameStore((s) => s.seed);
@@ -17,8 +15,7 @@ export function LevelMesh() {
     return { cells: lvl.cells, tile: 8 };
   }, [seed]);
 
-  const [fd, fn, fr] = useTexture([FLOOR_DIFF, FLOOR_NORM, FLOOR_ROUGH]);
-
+  const [fd, fn, fr] = useTexture([FLOOR_DIFF, undefined
   return (
     <group>
       {cells.map((c, i) => (
