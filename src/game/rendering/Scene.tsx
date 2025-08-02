@@ -1,19 +1,19 @@
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, StatsGl, useTexture } from '@react-three/drei';
+import { StatsGl, useTexture } from '@react-three/drei';
 import { Suspense } from 'react';
 import { useGameStore } from '../../state/useGameStore';
 
 // Simple floor/wall materials from AmbientCG (CC0) via direct URLs
 // Using 2K textures to balance quality/perf; can be tuned later.
-const FLOOR_DIFF = 'https://ambientcg.com/get?file=FloorTileBare001_2K-JPG/FloorTileBare001_2K_Color.jpg';
-const FLOOR_NORM = 'https://ambientcg.com/get?file=FloorTileBare001_2K-JPG/FloorTileBare001_2K_NormalGL.jpg';
-const FLOOR_ROUGH = 'https://ambientcg.com/get?file=FloorTileBare001_2K-JPG/FloorTileBare001_2K_Roughness.jpg';
-const FLOOR_AO = 'https://ambientcg.com/get?file=FloorTileBare001_2K-JPG/FloorTileBare001_2K_AmbientOcclusion.jpg';
+const FLOOR_DIFF = 'https://cdn.polyhaven.com/asset_img/primary/ground_gravel_01.png?height=1024';
+const FLOOR_NORM = 'https://cdn.polyhaven.com/asset_img/normal/ground_gravel_01.png?height=1024';
+const FLOOR_ROUGH = 'https://cdn.polyhaven.com/asset_img/rough/ground_gravel_01.png?height=1024';
+const FLOOR_AO = 'https://cdn.polyhaven.com/asset_img/ao/ground_gravel_01.png?height=1024';
 
-const WALL_DIFF = 'https://ambientcg.com/get?file=Concrete027_2K-JPG/Concrete027_2K_Color.jpg';
-const WALL_NORM = 'https://ambientcg.com/get?file=Concrete027_2K-JPG/Concrete027_2K_NormalGL.jpg';
-const WALL_ROUGH = 'https://ambientcg.com/get?file=Concrete027_2K-JPG/Concrete027_2K_Roughness.jpg';
-const WALL_AO = 'https://ambientcg.com/get?file=Concrete027_2K-JPG/Concrete027_2K_AmbientOcclusion.jpg';
+const WALL_DIFF = 'https://cdn.polyhaven.com/asset_img/primary/concrete_wall_001.png?height=1024';
+const WALL_NORM = 'https://cdn.polyhaven.com/asset_img/normal/concrete_wall_001.png?height=1024';
+const WALL_ROUGH = 'https://cdn.polyhaven.com/asset_img/rough/concrete_wall_001.png?height=1024';
+const WALL_AO = 'https://cdn.polyhaven.com/asset_img/ao/concrete_wall_001.png?height=1024';
 
 function Room() {
   const [fd, fn, fr, fao] = useTexture([FLOOR_DIFF, FLOOR_NORM, FLOOR_ROUGH, FLOOR_AO]);
@@ -67,10 +67,11 @@ function Room() {
 }
 
 
+import { FPSController } from './FPS';
+
 function PointerLockControls() {
-  // Minimal first-person look using pointer lock and manual camera rotation.
-  // For MVP, use OrbitControls restricted; will replace with real FPS lock next step.
-  return <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={0} />;
+  // Replace OrbitControls with our FPS controller
+  return <FPSController />;
 }
 
 export function SceneRoot() {
@@ -80,6 +81,7 @@ export function SceneRoot() {
       <Suspense fallback={null}>
         <ambientLight intensity={0.2} />
         <directionalLight position={[5, 8, 5]} intensity={0.6} castShadow />
+        {/* Procedural level floors for MVP */}
         <Room />
       </Suspense>
       <PointerLockControls />

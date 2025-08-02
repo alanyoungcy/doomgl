@@ -3,15 +3,13 @@ import { SceneRoot } from './game/rendering/Scene';
 import { useGameStore } from './state/useGameStore';
 
 function HUD() {
-  const { health, ammo, score, seed, setSeed, start, phase } = useGameStore((s) => ({
-    health: s.health,
-    ammo: s.ammo,
-    score: s.score,
-    seed: s.seed,
-    setSeed: s.setSeed,
-    start: s.start,
-    phase: s.phase,
-  }));
+  const health = useGameStore((s) => s.health);
+  const ammo = useGameStore((s) => s.ammo);
+  const score = useGameStore((s) => s.score);
+  const seed = useGameStore((s) => s.seed);
+  const setSeed = useGameStore((s) => s.setSeed);
+  const start = useGameStore((s) => s.start);
+  const phase = useGameStore((s) => s.phase);
 
   return (
     <div
